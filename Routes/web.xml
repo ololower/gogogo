@@ -1,0 +1,19 @@
+<!--
+ |
+ | Список роутов приложения, которые обслуживают веб
+ |
+ | ********************************************************
+ |
+ |
+ |
+-->
+<gogogo>
+    <route>
+        <path>/</path>
+        <handler>WelcomeHandler</handler>
+    </route>
+    <route>
+        <path>/welcome</path>
+        <handler>WelcomeHandler</handler>
+    </route>
+</gogogo>

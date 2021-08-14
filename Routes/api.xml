@@ -1,0 +1,19 @@
+<!--
+ |
+ | Конфигурация для роутов приложения, которые обслуживают API запросы
+ |
+ | ********************************************************
+ |
+ | You able to setup
+ |
+-->
+<gogogo>
+    <route>
+        <path>/</path>
+        <handler>WelcomeHandler</handler>
+    </route>
+    <route>
+        <path>/welcome</path>
+        <handler>WelcomeHandler</handler>
+    </route>
+</gogogo>
