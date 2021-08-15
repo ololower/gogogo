@@ -45,6 +45,8 @@ func (s App) runHandleFunc(w http.ResponseWriter, r *http.Request) {
 		)
 
 		if matcher.Match() {
+			_ = matcher.GetMatches()
+
 			var resp = Config.Registry[s.routes[i].Handler]().HandleMethod("GET", appData)
 			resp.SetResponse(w)
 		}

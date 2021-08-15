@@ -43,6 +43,16 @@ func TestMatcherCanServeUrlWithParams(t *testing.T) {
 	}
 }
 
+func TestMatcherCantServeUrlWithInfiniteParams(t *testing.T) {
+	var routePath = "pages/{category}"
+	var path = "pages/news/some/else/param"
+	var urlMatcher = NewUrlMatcher(routePath, path)
+
+	if !urlMatcher.Match() {
+		t.Fatal("Route path \"pages\" should be same as path \"pages\"")
+	}
+}
+
 func TestMatcherCanServeUrlWithFewParams(t *testing.T) {
 	var routePath = "pages/{category}/{article}"
 	var path = "pages/news/one_story_about_my_live"
