@@ -2,11 +2,12 @@ package Config
 
 import (
 	"Gogogo/Application/RouteHandler/Welcome"
+	"Gogogo/Packages/Handler"
 )
 
 
-var Registry = map[string] func() Welcome.ApiHandler{
-	"AppWelcome": func() Welcome.ApiHandler {
+var Registry = map[string] func() Handler.HandlerInterface{
+	"AppWelcome": func() Handler.HandlerInterface {
 		return Welcome.ApiHandler{}
 	},
 }

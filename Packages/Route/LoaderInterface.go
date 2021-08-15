@@ -26,4 +26,3 @@ func NewRouteLoaderForFile(filename string) (LoaderInterface, error) {
 
 	return nil, error
 }
-

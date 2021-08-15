@@ -25,19 +25,17 @@ func (s App) InitRoutine() App {
 	// Запуск основного обработчика для маршрутов приложения
 	// Все маршруты проксируются через базовый /
 	// и выбор метода для обработки маршрута будет через UrlMatcher
-	http.HandleFunc("/", s.getHandleFunc)
-
+	http.HandleFunc("/", s.runHandleFunc)
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 	return s
 }
 
-// getHandleFunc получить функцию - обработчик для текущего роута
-func (s App) getHandleFunc(w http.ResponseWriter, r *http.Request) {
+// runHandleFunc Запускает функцию - обработчик для текущего роута и возвращает ответ
+func (s App) runHandleFunc(w http.ResponseWriter, r *http.Request) {
 
 	// Формируем appData для прокидования данных в обработчик маршрутов
 	var appData = Request.NewAppData(r, w)
-
 
 	//Выполняем поиск запрошенного url и вызываем соответствующий для этого метод
 	for i := range s.routes {
@@ -47,7 +45,7 @@ func (s App) getHandleFunc(w http.ResponseWriter, r *http.Request) {
 		)
 
 		if matcher.Match() {
-			var resp = Config.Registry[s.routes[i].Handler]().HandleGet(appData)
+			var resp = Config.Registry[s.routes[i].Handler]().HandleMethod("GET", appData)
 			resp.SetResponse(w)
 		}
 	}
