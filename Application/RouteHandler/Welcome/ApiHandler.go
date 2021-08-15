@@ -14,6 +14,11 @@ func (s ApiHandler) HandleGet(appData *Request.AppData) Response.ResponseInterfa
 	return Response.Json(myJsonString, 200)
 }
 
+func (s ApiHandler) HandlePost(appData *Request.AppData) Response.ResponseInterface {
+	myJsonString := `{"some":"`+ appData.Request.Method +`"}`
+	return Response.Json(myJsonString, 200)
+}
+
 // HandleMethod определяет метод, который будет обрабатывать различные типы запросов
 // todo настроить методы по умолчанию
 // get - HandleGet
@@ -25,8 +30,11 @@ func (s ApiHandler) HandleMethod(method string, appData *Request.AppData) Respon
 		"get": func() Response.ResponseInterface {
 			return s.HandleGet(appData)
 		},
+		"post": func() Response.ResponseInterface {
+		 	return s.HandlePost(appData)
+		},
 	}
 
-	var methodInLovercase = strings.ToLower(method)
-	return handlers[methodInLovercase]()
+	var methodInLowercase = strings.ToLower(method)
+	return handlers[methodInLowercase]()
 }

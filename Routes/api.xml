@@ -2,6 +2,10 @@
 <xml_routes_list>
     <route>
         <path>/sample</path>
+        <handler>AppSample</handler>
+    </route>
+    <route>
+        <path>/welcome</path>
         <handler>AppWelcome</handler>
     </route>
 <!--    <route method="GET" action="CustomHandleGet">-->

@@ -13,3 +13,8 @@ func NewUrlMatcher(routePath string, path string) *UrlMatcher {
 func (s UrlMatcher) Match() bool {
 	return s.routePath == s.path
 }
+
+// getMatches Возвращает меппинг динамических переменных из url
+func (s UrlMatcher) getMatches() {
+
+}
