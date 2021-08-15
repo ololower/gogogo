@@ -1,19 +1,11 @@
-<!--
- |
- | Конфигурация для роутов приложения, которые обслуживают API запросы
- |
- | ********************************************************
- |
- | You able to setup
- |
--->
-<gogogo>
+<?xml version="1.0" encoding="UTF-8"?>
+<xml_routes_list>
     <route>
-        <path>/</path>
-        <handler>WelcomeHandler</handler>
+        <path>/sample</path>
+        <handler>AppWelcome</handler>
     </route>
-    <route>
-        <path>/welcome</path>
-        <handler>WelcomeHandler</handler>
-    </route>
-</gogogo>
+<!--    <route method="GET" action="CustomHandleGet">-->
+<!--        <path>/sample</path>-->
+<!--        <handler>AppWelcome</handler>-->
+<!--    </route>-->
+</xml_routes_list>

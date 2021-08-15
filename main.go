@@ -1,7 +1,11 @@
 package main
 
-import PackagesApp "Gogogo/Packages/Gogogo"
+import App "Gogogo/Packages/Framework"
+
 
 func main() {
-	PackagesApp.App{}.InitApplication()
+	//http.HandleFunc("/", AppWelcome.ApiHandler{}.HandleGet)
+	//log.Fatal(http.ListenAndServe(":8080", nil))
+	App.App{}.InitRoutine()
+
 }
